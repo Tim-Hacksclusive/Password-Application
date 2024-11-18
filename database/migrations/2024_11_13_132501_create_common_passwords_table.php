@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('common_passwords', function (Blueprint $table) {
             $table->id();
             $table->string('password');
-            $table->timestamps();
         });
     }
 

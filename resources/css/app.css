@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: 'Video-Light';
+        src: url('../fonts/Video-Light.otf') format("opentype");
+        font-weight: 300;
+    }
+}
