@@ -71,6 +71,8 @@ function setNewPasswordData() {
     );
     const common = props.commonPasswords.includes(password.value);
 
+    console.log(common);
+
     upper ? (hasUppercase.value = true) : (hasUppercase.value = false);
     digit ? (hasDigit.value = true) : (hasDigit.value = false);
     special ? (hasSpecial.value = true) : (hasSpecial.value = false);
@@ -114,7 +116,10 @@ function calculatePasswordStrength() {
             commonScore +
             lengthScore) /
         5;
+
+    console.log(uppercaseScore, digitScore, specialScore, lengthScore, commonScore);
     passwordEndScore.value = score;
+    console.log(passwordEndScore.value);
 }
 </script>
 
@@ -158,8 +163,8 @@ function calculatePasswordStrength() {
                     <p class="pt-1 mt-5 text-2xl text-white font-primary">
                         Eisen voor wachtwoord:
                     </p>
-                    <div class="flex items-center mt-2 text-white gap-x-2">
-                        <span :class="password ? passwordStrengthArray[(passwordLengthScore - 1)].color : 'text-gray-200'">Lengte:</span>
+                    <div class="flex flex-col mt-2 text-white gap-y-2">
+                        <span class="text-gray-200">Lengte:</span>
                         <div class="w-full h-1.5 bg-gray-200 rounded-md">
                             
                             <div
@@ -175,7 +180,8 @@ function calculatePasswordStrength() {
                             ></div>
                         </div>
                     </div>
-                    <div class="flex items-center mt-3 text-white gap-x-2">
+                    <p class="my-2 text-gray-200">Overige eisen:</p>
+                    <div class="flex items-center text-white gap-x-2">
                         <svg
                             v-if="!hasUppercase"
                             xmlns="http://www.w3.org/2000/svg"
@@ -284,16 +290,16 @@ function calculatePasswordStrength() {
                         </span>
                     </div>
                     <div
-                        v-if="password && password.length > 0"
                         class="flex items-center mt-2 text-white gap-x-2"
                     >
+                        {{isCommon}}
                         <svg
                             v-if="isCommon"
                             xmlns="http://www.w3.org/2000/svg"
                             class="w-5 h-5"
                             viewBox="0 -960 960 960"
                             :class="
-                                hasSpecial ? 'fill-green-400' : 'fill-red-400'
+                                isCommon ? 'fill-red-400' : 'fill-green-400'
                             "
                         >
                             <path
@@ -326,12 +332,12 @@ function calculatePasswordStrength() {
                             }}
                         </span>
                     </div>
+                    <!-- v-if="password && password.length > 0" -->
                     <div
-                        v-if="password && password.length > 0"
-                        class="flex mt-2 text-white gap-x-2"
+                        class="flex mt-4 text-white gap-x-2"
                     >
-                        <p>Eindscore:</p>
-                        <span>{{ passwordEndScore }}</span>
+                        <p class="text-xl">Eindscore:</p>
+                        <!-- <span v-if="password" class="text-xl" :class="passwordStrengthArray[(passwordEndScore - 1)].color">{{ passwordEndScore }}</span> -->
                     </div>
                 </div>
                 <div class="mt-7">
