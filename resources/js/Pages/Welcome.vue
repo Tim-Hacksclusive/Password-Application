@@ -2,7 +2,7 @@
 import InputLabel from "@/Components/InputLabel.vue";
 import TextInput from "@/Components/TextInput.vue";
 import { Head } from "@inertiajs/vue3";
-import { computed, ref, watch } from "vue";
+import { ref, watch } from "vue";
 
 const props = defineProps({
     commonPasswords: {
@@ -14,36 +14,35 @@ const password = defineModel({
     required: true,
 });
 
-const passwordLengthLayout = ref({
-    color: "text-red-400",
-    value: 1,
-    text: "Erg kort",
-});
-
 const passwordStrengthArray = [
     {
         value: 1,
-        color: "red-400",
+        color: "text-red-400",
+        bgColor: "bg-red-400",
         text: "Erg zwak",
     },
     {
         value: 2,
-        color: "red-200",
+        color: "text-red-200",
+        bgColor: "bg-red-200",
         text: "Zwak",
     },
     {
         value: 3,
-        color: "yellow-400",
+        color: "text-yellow-400",
+        bgColor: "bg-yellow-400",
         text: "Gemiddeld",
     },
     {
         value: 4,
-        color: "green-200",
+        color: "text-green-200",
+        bgColor: "bg-green-200",
         text: "Sterk",
     },
     {
         value: 5,
-        color: "green-400",
+        color: "text-green-400",
+        bgColor: "bg-green-400",
         text: "Erg sterk",
     },
 ];
@@ -160,13 +159,13 @@ function calculatePasswordStrength() {
                         Eisen voor wachtwoord:
                     </p>
                     <div class="flex items-center mt-2 text-white gap-x-2">
-                        <span :class="password ? 'text-' + passwordStrengthArray[(passwordLengthScore - 1)].color : 'text-gray-200'">Lengte:</span>
+                        <span :class="password ? passwordStrengthArray[(passwordLengthScore - 1)].color : 'text-gray-200'">Lengte:</span>
                         <div class="w-full h-1.5 bg-gray-200 rounded-md">
                             
                             <div
                                 v-if="passwordLengthScore > 0"
                                 class="h-1.5 rounded-md"
-                                :class="'bg-' + passwordStrengthArray[(passwordLengthScore - 1)].color"
+                                :class="passwordStrengthArray[(passwordLengthScore - 1)].bgColor"
                                 :style="{ width: (passwordLengthScore * 20) + '%' }"
                                 
                             ></div>
