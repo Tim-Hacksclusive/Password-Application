@@ -253,7 +253,7 @@ function calculatePasswordScore() {
                                             : 'text-red-400'
                                     "
                                 >
-                                    bevat een hoofdletter
+                                    Bevat een hoofdletter
                                 </span>
                             </div>
                             <div class="flex mt-2 text-white gap-x-2">
@@ -295,7 +295,7 @@ function calculatePasswordScore() {
                                             : 'text-red-400'
                                     "
                                 >
-                                    bevat een speciaal teken
+                                    Bevat een speciaal teken
                                 </span>
                             </div>
                         </div>
@@ -341,7 +341,7 @@ function calculatePasswordScore() {
                                             : 'text-red-400'
                                     "
                                 >
-                                    bevat een getal
+                                    Bevat een getal
                                 </span>
                             </div>
                             <div
@@ -387,8 +387,8 @@ function calculatePasswordScore() {
                                 >
                                     {{
                                         isCommon
-                                            ? "veel voorkomend"
-                                            : "niet veel voorkomend"
+                                            ? "Veel voorkomend"
+                                            : "Niet veel voorkomend"
                                     }}
                                 </span>
                             </div>
