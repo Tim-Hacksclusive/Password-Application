@@ -162,7 +162,7 @@ function calculatePasswordScore() {
         </div>
         <div
             id="checker"
-            class="absolute max-w-md transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+            class="absolute transform -translate-x-1/2 -translate-y-1/2 sm:max-w-md top-1/2 left-1/2"
         >
             <div
                 class="z-50 p-8 border-2 border-white rounded-lg"
@@ -172,7 +172,7 @@ function calculatePasswordScore() {
                     <h1 class="text-4xl text-center text-white font-primary">
                         Wachtwoord check
                     </h1>
-                    <p class="mt-2 font-sans text-white">
+                    <p class="mt-2 font-sans text-center text-white">
                         Vul hier jouw wachtwoord in en kom erachter of het
                         veilig is!
                     </p>
@@ -211,173 +211,193 @@ function calculatePasswordScore() {
                             ></div>
                         </div>
                     </div>
-                    <p class="my-2 text-gray-200">Overige eisen:</p>
+                    <p class="mt-3 mb-2 text-gray-200">Overige eisen:</p>
                     <div class="flex items-center justify-between">
-                        <div class="flex items-center text-white gap-x-2">
-                            <svg
-                                v-if="!hasUppercase"
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="w-5 h-5"
-                                viewBox="0 -960 960 960"
-                                :class="
-                                    hasUppercase
-                                        ? 'fill-green-400'
-                                        : 'fill-red-400'
-                                "
-                            >
-                                <path
-                                    d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"
-                                />
-                            </svg>
-                            <svg
-                                v-if="hasUppercase"
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="w-5 h-5"
-                                :class="
-                                    hasUppercase
-                                        ? 'fill-green-400'
-                                        : 'fill-red-400'
-                                "
-                                viewBox="0 -960 960 960"
-                            >
-                                <path
-                                    d="m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"
-                                />
-                            </svg>
-                            <span
-                                class="text-sm"
-                                :class="
-                                    hasUppercase
-                                        ? 'text-green-400'
-                                        : 'text-red-400'
-                                "
-                            >
-                                bevat een hoofdletter
-                            </span>
+                        <div class="flex flex-col">
+                            <div class="flex items-center text-white gap-x-2">
+                                <svg
+                                    v-if="!hasUppercase"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="w-5 h-5"
+                                    viewBox="0 -960 960 960"
+                                    :class="
+                                        hasUppercase
+                                            ? 'fill-green-400'
+                                            : 'fill-red-400'
+                                    "
+                                >
+                                    <path
+                                        d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"
+                                    />
+                                </svg>
+                                <svg
+                                    v-if="hasUppercase"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="w-5 h-5"
+                                    :class="
+                                        hasUppercase
+                                            ? 'fill-green-400'
+                                            : 'fill-red-400'
+                                    "
+                                    viewBox="0 -960 960 960"
+                                >
+                                    <path
+                                        d="m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"
+                                    />
+                                </svg>
+                                <span
+                                    class="text-sm"
+                                    :class="
+                                        hasUppercase
+                                            ? 'text-green-400'
+                                            : 'text-red-400'
+                                    "
+                                >
+                                    bevat een hoofdletter
+                                </span>
+                            </div>
+                            <div class="flex mt-2 text-white gap-x-2">
+                                <svg
+                                    v-if="!hasSpecial"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="w-5 h-5"
+                                    viewBox="0 -960 960 960"
+                                    :class="
+                                        hasSpecial
+                                            ? 'fill-green-400'
+                                            : 'fill-red-400'
+                                    "
+                                >
+                                    <path
+                                        d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"
+                                    />
+                                </svg>
+                                <svg
+                                    v-if="hasSpecial"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="w-5 h-5"
+                                    :class="
+                                        hasSpecial
+                                            ? 'fill-green-400'
+                                            : 'fill-red-400'
+                                    "
+                                    viewBox="0 -960 960 960"
+                                >
+                                    <path
+                                        d="m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"
+                                    />
+                                </svg>
+                                <span
+                                    class="text-sm"
+                                    :class="
+                                        hasSpecial
+                                            ? 'text-green-400'
+                                            : 'text-red-400'
+                                    "
+                                >
+                                    bevat een speciaal teken
+                                </span>
+                            </div>
                         </div>
-                        <div class="flex items-center mt-2 text-white gap-x-2">
-                            <svg
-                                v-if="!hasDigit"
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="w-5 h-5"
-                                viewBox="0 -960 960 960"
-                                :class="
-                                    hasDigit ? 'fill-green-400' : 'fill-red-400'
-                                "
+                        <div class="flex flex-col">
+                            <div
+                                class="flex items-center text-white gap-x-2"
                             >
-                                <path
-                                    d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"
-                                />
-                            </svg>
-                            <svg
-                                v-if="hasDigit"
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="w-5 h-5"
-                                :class="
-                                    hasDigit ? 'fill-green-400' : 'fill-red-400'
-                                "
-                                viewBox="0 -960 960 960"
+                                <svg
+                                    v-if="!hasDigit"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="w-5 h-5"
+                                    viewBox="0 -960 960 960"
+                                    :class="
+                                        hasDigit
+                                            ? 'fill-green-400'
+                                            : 'fill-red-400'
+                                    "
+                                >
+                                    <path
+                                        d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"
+                                    />
+                                </svg>
+                                <svg
+                                    v-if="hasDigit"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="w-5 h-5"
+                                    :class="
+                                        hasDigit
+                                            ? 'fill-green-400'
+                                            : 'fill-red-400'
+                                    "
+                                    viewBox="0 -960 960 960"
+                                >
+                                    <path
+                                        d="m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"
+                                    />
+                                </svg>
+                                <span
+                                    class="text-sm"
+                                    :class="
+                                        hasDigit
+                                            ? 'text-green-400'
+                                            : 'text-red-400'
+                                    "
+                                >
+                                    bevat een getal
+                                </span>
+                            </div>
+                            <div
+                                class="flex items-center mt-2 text-white gap-x-2"
                             >
-                                <path
-                                    d="m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"
-                                />
-                            </svg>
-                            <span
-                                class="text-sm"
-                                :class="
-                                    hasDigit ? 'text-green-400' : 'text-red-400'
-                                "
-                            >
-                                bevat een getal
-                            </span>
+                                <svg
+                                    v-if="isCommon"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="w-5 h-5"
+                                    viewBox="0 -960 960 960"
+                                    :class="
+                                        isCommon
+                                            ? 'fill-red-400'
+                                            : 'fill-green-400'
+                                    "
+                                >
+                                    <path
+                                        d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"
+                                    />
+                                </svg>
+                                <svg
+                                    v-if="!isCommon"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="w-5 h-5"
+                                    :class="
+                                        isCommon
+                                            ? 'fill-red-400'
+                                            : 'fill-green-400'
+                                    "
+                                    viewBox="0 -960 960 960"
+                                >
+                                    <path
+                                        d="m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"
+                                    />
+                                </svg>
+                                <span
+                                    class="text-sm"
+                                    :class="
+                                        isCommon
+                                            ? 'text-red-400'
+                                            : 'text-green-400'
+                                    "
+                                >
+                                    {{
+                                        isCommon
+                                            ? "veel voorkomend"
+                                            : "niet veel voorkomend"
+                                    }}
+                                </span>
+                            </div>
                         </div>
                     </div>
-                    <div class="flex items-center justify-between">
-                        <div class="flex mt-2 text-white gap-x-2">
-                            <svg
-                                v-if="!hasSpecial"
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="w-5 h-5"
-                                viewBox="0 -960 960 960"
-                                :class="
-                                    hasSpecial
-                                        ? 'fill-green-400'
-                                        : 'fill-red-400'
-                                "
-                            >
-                                <path
-                                    d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"
-                                />
-                            </svg>
-                            <svg
-                                v-if="hasSpecial"
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="w-5 h-5"
-                                :class="
-                                    hasSpecial
-                                        ? 'fill-green-400'
-                                        : 'fill-red-400'
-                                "
-                                viewBox="0 -960 960 960"
-                            >
-                                <path
-                                    d="m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"
-                                />
-                            </svg>
-                            <span
-                                class="text-sm"
-                                :class="
-                                    hasSpecial
-                                        ? 'text-green-400'
-                                        : 'text-red-400'
-                                "
-                            >
-                                bevat een speciaal teken
-                            </span>
-                        </div>
-                        <div class="flex items-center mt-2 text-white gap-x-2">
-                            <svg
-                                v-if="isCommon"
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="w-5 h-5"
-                                viewBox="0 -960 960 960"
-                                :class="
-                                    isCommon ? 'fill-red-400' : 'fill-green-400'
-                                "
-                            >
-                                <path
-                                    d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"
-                                />
-                            </svg>
-                            <svg
-                                v-if="!isCommon"
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="w-5 h-5"
-                                :class="
-                                    isCommon ? 'fill-red-400' : 'fill-green-400'
-                                "
-                                viewBox="0 -960 960 960"
-                            >
-                                <path
-                                    d="m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"
-                                />
-                            </svg>
-                            <span
-                                class="text-sm"
-                                :class="
-                                    isCommon ? 'text-red-400' : 'text-green-400'
-                                "
-                            >
-                                {{
-                                    isCommon
-                                        ? "veel voorkomend"
-                                        : "niet veel voorkomend"
-                                }}
-                            </span>
-                        </div>
-                    </div>
-                    <div class="flex items-center mt-4 text-white gap-x-2">
-                        <p class="text-xl">Wachtwoord score:</p>
+                    <div
+                        class="flex items-center justify-center p-2 text-black bg-gray-500 rounded-md mt-7 gap-x-2"
+                    >
+                        <p class="text-xl font-medium text-white">Eindscore:</p>
                         <span
                             v-if="password && password.length > 0"
                             class="text-xl"
@@ -389,15 +409,15 @@ function calculatePasswordScore() {
                         >
                         <span
                             v-if="!password && password.length === 0"
-                            class="text-xl text-red-600"
+                            class="text-xl font-medium text-red-600"
                             >1</span
                         >
                     </div>
                 </div>
-                <div class="mt-7">
+                <div class="flex justify-center mt-7">
                     <img
                         src="../../img/hacksclusive-logo.png"
-                        class="w-32 h-7"
+                        class="w-32"
                         alt="hacksclusive-logo"
                     />
                 </div>
