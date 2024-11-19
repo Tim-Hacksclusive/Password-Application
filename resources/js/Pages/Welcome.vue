@@ -177,7 +177,7 @@ function calculatePasswordScore() {
                         veilig is!
                     </p>
                 </div>
-                <div class="mt-10">
+                <div class="mt-8">
                     <InputLabel class="text-white">Jouw wachtwoord:</InputLabel>
                     <TextInput
                         type="password"
@@ -395,21 +395,21 @@ function calculatePasswordScore() {
                         </div>
                     </div>
                     <div
-                        class="flex items-center justify-center p-2 text-black bg-gray-500 rounded-md mt-7 gap-x-2"
+                        class="flex items-center justify-center py-2.5 mt-10 text-black bg-gray-500 rounded-md gap-x-2"
                     >
                         <p class="text-xl font-medium text-white">Eindscore:</p>
                         <span
                             v-if="password && password.length > 0"
-                            class="text-xl"
+                            class="flex items-center justify-center text-xl font-medium text-white rounded-full h-7 w-7"
                             :class="
                                 passwordStrengthArray[passwordEndScore - 1]
-                                    .color
+                                    .bgColor
                             "
                             >{{ passwordEndScore }}</span
                         >
                         <span
                             v-if="!password && password.length === 0"
-                            class="text-xl font-medium text-red-600"
+                            class="flex items-center justify-center text-xl font-medium text-white bg-red-600 rounded-full w-7 h-7"
                             >1</span
                         >
                     </div>

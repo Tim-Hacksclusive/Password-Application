@@ -32,7 +32,7 @@ const returnModel = () => {
 
 <template>
     <input
-        class="border-gray-300 rounded-md shadow-sm focus:border-[#b08bff] focus:border-3 focus:ring-[#b08bff]"
+        class="border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
         v-model="model"
         @input="returnModel"
         ref="input"
