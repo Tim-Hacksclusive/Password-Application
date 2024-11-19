@@ -57,7 +57,7 @@ watch(password, (newPassword) => {
     if (newPassword.length === 0) {
         passwordLengthScore.value = 0;
     }
-
+    
     determinePasswordLength();
     setNewPasswordData();
 });
