@@ -14,12 +14,15 @@ As an employee at Hacksclusive, I understand the importance of having a strong p
 ### Executing program
 
 ```
- • cp .env.example .env.
- • change the database info in the .env to your data.
- • composer i.
- • npm i.
- • php artisan migrate.
- • php artisan db:seed.
+ • cp .env.example .env
+ • change the database info in the .env to your data
+ • php artisan key:generate.
+ • composer i
+ • npm i
+ • php artisan migrate
+ • php artisan db:seed
+ • npm run dev
+ • php artisan serve
 ```
 
 ## Version History
