@@ -13,16 +13,27 @@ As an employee at Hacksclusive, I understand the importance of having a strong p
 
 ### Executing program
 
+#### Return the commands below:
 ```
  • cp .env.example .env
- • change the database info in the .env to your data
- • php artisan key:generate.
+ • php artisan key:generate
  • composer i
  • npm i
  • php artisan migrate
  • php artisan db:seed
  • npm run dev
  • php artisan serve
+```
+
+### .env configuration
+Configure your .env file to your database information.
+```
+DB_CONNECTION=sqlite
+DB_HOST=
+DB_PORT=
+DB_DATABASE=
+DB_USERNAME=
+DB_PASSWORD=
 ```
 
 ## Version History
